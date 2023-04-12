@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Главная страница</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div>
+<form method="post" id="data">
+    {% csrf_token %}
+    <h3>Вход в личный кабинет</h3>
+    {{ form.as_p }}
+    <button type="submit">Войти</button>
+    <button><a href="{% url 'table' %}">Войти без регистрации</a></button>
+</form>
+</body>
+</html>
