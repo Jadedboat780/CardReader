@@ -9,7 +9,6 @@ class FirstTable(models.Model):
     username = models.TextField(db_column='Username')  # Field name made lowercase.
     time = models.DateTimeField()
 
-
     def __str__(self):
         return f'{self.group} {self.username} {self.time.time()}'
 

@@ -3,10 +3,10 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="5">
+    {#    <meta http-equiv="refresh" content="5">#}
     <title>Таблица</title>
     <link rel="stylesheet" href="{% static 'css/table_attendance.css' %}">
-    {#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>#}
+{#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>#}
 {#    <script src="{% static 'javascript/script.js' %}"></script>#}
 </head>
 <body>
@@ -36,8 +36,10 @@
 <br>
 <form method="POST">
     {% csrf_token %}
-    {{ form.as_div }}
-    <input type="submit" value="Фильтрация">
+    {{ form.1.as_table }}
+{#    {{ form.0.as_div }}#}
+{#    <input type="submit" value="Фильтрация">#}
+    <input type="submit" value="Добавить данные">
 </form>
 </body>
 </html>
