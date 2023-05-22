@@ -1,14 +1,12 @@
 from django.contrib import admin
 from django.urls import path, include
-from Регистрация.views import home
-from Таблица_посещаемости.views import table
+from Таблица_посещаемости.views import MyView
 
 
 urlpatterns = [
-    path('************', admin.site.urls),
-    path('rest-api', include('Таблица_посещаемости.urls')),
-    path('', home, name='home'),
-    path('table/', table, name='table'),
+    path('admin_kalabok_36', admin.site.urls),
+    path('', include('Таблица_посещаемости.urls')),
+    path('rest-api/couple', MyView.as_view(), name='table'),
 ]
 
-handler404 = "Считыватель_карт.views.error_404"
+# handler404 = "Считыватель_карт.views.error_404"

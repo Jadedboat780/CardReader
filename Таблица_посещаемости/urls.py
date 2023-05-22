@@ -2,13 +2,13 @@ from rest_framework import viewsets, routers, permissions
 from Регистрация.models import DjandoRegistration
 from Таблица_посещаемости.models import FirstTable
 from django.urls import path, include
-from Таблица_посещаемости.serializers import TeacherSerializer, StudentSerializer
+from Таблица_посещаемости.serializers import StudentSerializer
 
 
-class TeacherViewSet(viewsets.ModelViewSet):
-    queryset = DjandoRegistration.objects.all()
-    serializer_class = TeacherSerializer
-    permission_classes = [permissions.IsAuthenticated]
+# class TeacherViewSet(viewsets.ModelViewSet):
+#     queryset = DjandoRegistration.objects.all()
+#     serializer_class = TeacherSerializer
+#     permission_classes = [permissions.IsAuthenticated]
 
 
 class StudentViewSet(viewsets.ModelViewSet):
@@ -18,7 +18,7 @@ class StudentViewSet(viewsets.ModelViewSet):
 
 
 router = routers.DefaultRouter()
-router.register(r'teacher', TeacherViewSet)
+# router.register(r'teacher', TeacherViewSet)
 router.register(r'couple', StudentViewSet)
 
 urlpatterns = [
