@@ -4,8 +4,8 @@ from Регистрация.views import EntranceApiView
 from Таблица_посещаемости.views import TableApiView
 
 urlpatterns = [
-    path('************', admin.site.urls),
+    path('admin_kalabok_36', admin.site.urls),
     path('', include('Считыватель_карт.rest-api')),
-    path('******', EntranceApiView.as_view(), name='register'),
-    path('**************', TableApiView.as_view(), name='table'),
+    path('rest-api/entrance', EntranceApiView.as_view(), name='register'),
+    path('rest-api/couple', TableApiView.as_view(), name='table'),
 ]
