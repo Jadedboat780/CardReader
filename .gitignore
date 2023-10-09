@@ -1,3 +1,6 @@
+CardReader/settings.py
+static
+Registration/migrations
+TableCouples/migrations
 venv
-Считыватель_карт/settings.py
 .idea

@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from Регистрация.models import DjandoRegistration
-from Регистрация.serializers import TeacherSerializer
+from Registration.models import Registration
+from Registration.serializers import TeacherSerializer
 
 
 class EntranceApiView(APIView):
@@ -11,9 +11,9 @@ class EntranceApiView(APIView):
             login = serializer.validated_data['login']
             password = serializer.validated_data['password']
             try:
-                DjandoRegistration.objects.get(login=login, password=password)
+                Registration.objects.get(login=login, password=password)
                 return Response({'message': 'Пользователь найден'}, status=200)
-            except DjandoRegistration.DoesNotExist:
+            except Registration.DoesNotExist:
                 return Response({'message': 'Пользователь не найден'}, status=404)
         else:
             return Response({'message': 'Невалидные данные'}, status=400)
