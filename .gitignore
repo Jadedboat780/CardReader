@@ -1,6 +1,5 @@
 .idea
-CardReader/settings.py
-static
+.env
 Registration/migrations
 TableCouples/migrations
 venv
