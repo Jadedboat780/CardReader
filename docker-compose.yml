@@ -2,25 +2,33 @@ version: '3'
 
 services:
   web:
-    build: .
     container_name: web
-    command: python manage.py runserver 0.0.0.0:8000
+    build: .
+    command:
+     sh -c "python manage.py runserver 0.0.0.0:8000 &&
+            python -m celery -A CardReader worker"
     volumes:
       - .:/app
     ports:
       - 8000:8000
     depends_on:
       - db
-
+      - redis
   db:
-    image: postgres
     container_name: db
+    image: postgres:12-alpine
     environment:
       - POSTGRES_DB=cardreader
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=kalabok76
     volumes:
-       - pgdbdata:/var/lib/postgresql/data/
+      - pgdbdata:/var/lib/postgresql/data/
+
+  redis:
+    container_name: 'redis'
+    image: redis:alpine
+    expose:
+      - 6379
 
 #  nginx:
 #    image: nginx:latest
