@@ -38,35 +38,6 @@ REST_FRAMEWORK = {
 CORS_ORIGIN_ALLOW_ALL = True
 ROOT_URLCONF = 'CardReader.urls'
 
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': False,
-#     'handlers': {
-#         'debug_file': {
-#             'level': 'DEBUG',
-#             'class': 'logging.FileHandler',
-#             'filename': '<path_to_file>/debug.log'
-#         },
-#         'error_file': {
-#             'level': 'ERROR',
-#             'class': 'logging.FileHandler',
-#             'filename': '<path_to_file>/error.log'
-#         }
-#     },
-#     'loggers': {
-#             'django': {
-#                 'handlers': ['debug_file'],
-#                 'level': 'DEBUG',
-#                 'propagate': True,
-#             },
-#             '': {
-#                 'handlers': ['error_file'],
-#                 'level': 'ERROR',
-#                 'propagate': True,
-#             },
-#         },
-# }
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -110,6 +81,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+CELERY_BROKER_URL = os.getenv('REDIS_URL')
+CELERY_RESULT_BACKEND = os.getenv('REDIS_URL')
+# CELERY_ACCEPT_CONTENT = ['application/json']
+# CELERY_TASK_SERIALIZER = 'json'
+# CELERY_RESULT_SERIALIZER = 'json'
 
 LANGUAGE_CODE = 'ru'
 TIME_ZONE = 'Europe/Moscow'

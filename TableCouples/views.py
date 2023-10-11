@@ -2,8 +2,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from TableCouples.models import CoupleInfo
 from django.db.models import Q
-from TableCouples.serializers import StudentSerializer
 from datetime import datetime
+from TableCouples.serializers import StudentSerializer
 
 
 class DataBase:
