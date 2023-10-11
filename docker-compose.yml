@@ -14,9 +14,10 @@ services:
     depends_on:
       - db
       - redis
+
   db:
     container_name: db
-    image: postgres:12-alpine
+    image: postgres:alpine
     environment:
       - POSTGRES_DB=cardreader
       - POSTGRES_USER=postgres
@@ -25,20 +26,20 @@ services:
       - pgdbdata:/var/lib/postgresql/data/
 
   redis:
-    container_name: 'redis'
+    container_name: redis
     image: redis:alpine
     expose:
       - 6379
 
-#  nginx:
-#    image: nginx:latest
-#    container_name: nginx
-#    ports:
-#      - 80:80
-#    volumes:
-#      - /nginx.conf
-#    depends_on:
-#      - web
+  nginx:
+    container_name: nginx
+    image: nginx:alpine
+    volumes:
+      - /nginx.conf
+    ports:
+      - 80:80
+    depends_on:
+      - web
 
 volumes:
   pgdbdata:
