@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from TableCouples.models import CoupleInfo
@@ -26,8 +27,6 @@ class DataBase:
         pass
 
 
-class TableApiView(APIView):
-    def get(self, request):
-        queryset = CoupleInfo.objects.all()
-        serializer = StudentSerializer(queryset, many=True)
-        return Response(serializer.data, status=200)
+
+def table(request):
+        return render(request, 'table.html')
