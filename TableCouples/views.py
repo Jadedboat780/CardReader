@@ -1,10 +1,8 @@
 from django.shortcuts import render
-from rest_framework.response import Response
 from rest_framework.views import APIView
 from TableCouples.models import CoupleInfo
 from django.db.models import Q
 from datetime import datetime
-from TableCouples.serializers import StudentSerializer
 
 
 class DataBase:
@@ -28,5 +26,7 @@ class DataBase:
 
 
 
-def table(request):
-        return render(request, 'table.html')
+class Table(APIView):
+    def get(self, request):
+        qeryset = CoupleInfo.objects.all().values()
+        return render(request, 'table.html', {'database': qeryset})

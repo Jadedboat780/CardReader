@@ -18,51 +18,13 @@
         </tr>
       </thead>
       <tbody>
+      {% for data in database %}
         <tr>
-          <td>122</td>
-          <td>Токин Н.А</td>
-          <td>9:40</td>
+          <td>{{ data.esp }}</td>
+          <td>{{ data.username }}</td>
+          <td>{{ data.in_time }}</td>
         </tr>
-        <tr>
-          <td>122</td>
-          <td>Токин Н.А</td>
-          <td>9:40</td>
-        </tr>
-        <tr>
-          <td>122</td>
-          <td>Токин Н.А</td>
-          <td>9:40</td>
-        </tr>
-        <tr>
-          <td>122</td>
-          <td>Токин Н.А</td>
-          <td>9:40</td>
-        </tr>
-        <tr>
-          <td>122</td>
-          <td>Токин Н.А</td>
-          <td>9:40</td>
-        </tr>
-        <tr>
-          <td>122</td>
-          <td>Токин Н.А</td>
-          <td>9:40</td>
-        </tr>
-        <tr>
-          <td>122</td>
-          <td>Токин Н.А</td>
-          <td>9:40</td>
-        </tr>
-        <tr>
-          <td>122</td>
-          <td>Токин Н.А</td>
-          <td>9:40</td>
-        </tr>
-        <tr>
-          <td>122</td>
-          <td>Токин Н.А</td>
-          <td>9:40</td>
-        </tr>
+      {% endfor %}
       </tbody>
     </table>
   </div>

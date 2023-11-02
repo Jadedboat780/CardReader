@@ -4,17 +4,18 @@
 	<head>
 	  <meta charset="utf-8" />
 	  <title>РКСИ</title>
-	  <link rel="stylesheet" href="{% static "login_style.css" %}" />
+	  <link rel="stylesheet" href="{% static "login.css" %}" />
 	</head>
 	<body>
 		<div class="head">
 			<h1>Посещаемость РКСИ</h1>
 		</div>
-		<div class="form">
+		<form class="form" method="post">
+            {% csrf_token %}
 			<h3 class="item_form">Вход в личный кабинет</h3>
-			<input type="text" placeholder="Введите логин" name="email" class="item_form">
-			<input type="password" placeholder="Введите пароль" name="password" class="item_form">
-			<button href="" type="submit" class="item_form">Войти</button>
-		</div>
+			<input type="text" placeholder="Введите логин" name="email" class="item_form" required>
+			<input type="password" placeholder="Введите пароль" name="password" class="item_form" required>
+			<button type="submit" class="item_form">Войти</button>
+		</form>
 	</body>
 </html>
